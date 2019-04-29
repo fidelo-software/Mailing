@@ -20,15 +20,15 @@ class MailServer {
 		$sDomain = $oEmail->getDomain();
 		
 		return $this->run([
-					// external sources
-					Discovery\ISPDB::class,
-					Discovery\DomainServer::class,
-					Discovery\DomainDirectory::class,
-					// dns resolve (mx records)
-					Discovery\DnsResolve::class,
-					// at least we try to guess the config
-					Discovery\Guess::class,
-				], $sDomain);
+			// external sources
+			Discovery\ISPDB::class,
+			Discovery\DomainServer::class,
+			Discovery\DomainDirectory::class,
+			// dns resolve (mx records)
+			Discovery\DnsResolve::class,
+			// at least we try to guess the config
+			Discovery\Guess::class,
+		], $sDomain);
 	}
 	
 	/**
