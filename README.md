@@ -2,7 +2,7 @@
 
 Discover mailserver configuration from email address
 
-##Installation
+## Installation
 
 Install the package via composer
 
@@ -10,7 +10,7 @@ Install the package via composer
 composer require fidelosoftware/mailing
 ```
 
-##Usage
+## Usage
 
 ```php
 $oMailServer = new \FideloSoftware\Mailing\AutoConfig\MailServer();
