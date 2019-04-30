@@ -19,7 +19,7 @@ class Email {
 	}
 	
 	/**
-	 * Get full e-mail-address
+	 * Get full email address
 	 * @return string
 	 */
 	public function getFull() : string {
@@ -27,7 +27,7 @@ class Email {
 	}
 	
 	/**
-	 * Get domain part of the given e-mail-address
+	 * Get domain part of the given email address
 	 * 
 	 * @return string
 	 */
@@ -36,7 +36,7 @@ class Email {
 	}
 	
 	/**
-	 * Get local part of the given e-mail-address
+	 * Get local part of the given email address
 	 * 
 	 * @return string
 	 */
@@ -45,7 +45,7 @@ class Email {
 	}
 	
 	/**
-	 * Validate an e-mail-address
+	 * Validate an email address
 	 * 
 	 * @param string $sEmail
 	 * @return bool
@@ -55,7 +55,7 @@ class Email {
 	}
 	
 	/**
-	 * Validate an e-mail-address and throw an exception if not valid
+	 * Validate an email address and throw an exception if not valid
 	 * 
 	 * @param string $sEmail
 	 * @return bool

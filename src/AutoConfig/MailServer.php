@@ -9,14 +9,14 @@ use FideloSoftware\Mailing\AutoConfig\Config;
 class MailServer {
 
 	/**
-	 * Discover mail server settings for an e-mail object. If no external config
+	 * Discover mail server settings for an email object. If no external config
 	 * could be found we'll try to guess settings
 	 * 
 	 * @param \FideloSoftware\Mailing\Email $oEmail
 	 * @return \FideloSoftware\Mailing\AutoConfig\Config
 	 */
 	public function discover(Email $oEmail) : Config {
-		// get domain part of the e-mail
+		// get domain part of the email
 		$sDomain = $oEmail->getDomain();
 		
 		return $this->run([

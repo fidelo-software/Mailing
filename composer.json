@@ -1,0 +1,18 @@
+{
+	"name": "fidelosoftware/mailing",
+    "description": "Discover mailserver configuration from email address",
+	"keywords": ["mail", "email"],
+	"license": "MIT",
+	"homepage": "https://fidelo.com",
+	"authors": [
+        {
+            "name": "Fidelo Software GmbH",
+            "email": "support@fidelo.com"
+        }
+	],
+	"autoload": {
+        "psr-4": {
+            "FideloSoftware\\Mailing\\": "src/"
+        }
+	}
+}
