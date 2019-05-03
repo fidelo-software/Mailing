@@ -4,6 +4,10 @@ namespace FideloSoftware\Mailing\AutoConfig\Config;
 
 class IncomingServer extends AbstractServer {
 	
+	const IMAP = 'imap';
+	
+	const POP3 = 'pop3';
+	
 	/**
 	 * @param string $sHostname
 	 * @param int $iPort
