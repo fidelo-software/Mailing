@@ -4,6 +4,8 @@ namespace FideloSoftware\Mailing\AutoConfig\Config;
 
 class OutgoingServer extends AbstractServer {
 	
+	const SMTP = 'smtp';
+	
 	/**
 	 * @param string $sHostname
 	 * @param int $iPort

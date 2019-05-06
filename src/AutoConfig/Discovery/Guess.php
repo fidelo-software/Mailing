@@ -6,9 +6,7 @@ use FideloSoftware\Mailing\AutoConfig\Interfaces\DiscoveryObject;
 use FideloSoftware\Mailing\AutoConfig\Config;
 
 class Guess implements DiscoveryObject {
-	
-	const SMTP = 'smtp';
-	
+
 	/**
 	 * Guess mail server config
 	 * 
@@ -28,7 +26,7 @@ class Guess implements DiscoveryObject {
 		
 		$oConfig->addIncomingServer($oIncomingServer);
 		
-		$oOutgoingServer = (new Config\OutgoingServer('mail.'.$sDomain, 587, OutgoingServer::SMTP))
+		$oOutgoingServer = (new Config\OutgoingServer('mail.'.$sDomain, 587, Config\OutgoingServer::SMTP))
 				->setSocketType('STARTTLS')
 				->setAuthentication('password-cleartext')
 				->setUserName('%EMAILADDRESS%');
