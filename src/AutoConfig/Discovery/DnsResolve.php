@@ -19,7 +19,7 @@ class DnsResolve implements DiscoveryObject {
 		$aRecords = [];
 		
 		if(!dns_get_mx($sDomain, $aRecords)) return null;
-		
+
 		foreach($aRecords as $sRecord) {
 			
 			$aRecordData = explode('.', $sRecord);
@@ -27,7 +27,11 @@ class DnsResolve implements DiscoveryObject {
 			$sRecordForelast = array_pop($aRecordData);
 	
 			// only the last second entries will be used as record domain
-			$sRecordDomain = implode('.', [$sRecordForelast, $sRecordLast]);		
+			$sRecordDomain = implode('.', [$sRecordForelast, $sRecordLast]);	
+			
+			// z.B. bei Google kommt hier eine großgeschriebene Domain GOOGLE.COM raus. Das klappt dann nicht.
+			$sRecordDomain = strtolower($sRecordDomain);
+						
 			// run through discovery objects to find config for record domain
 			if(null !== $oConfig = $this->run([
 				Discovery\ISPDB::class,
