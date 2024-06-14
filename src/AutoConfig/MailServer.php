@@ -3,10 +3,10 @@
 namespace FideloSoftware\Mailing\AutoConfig;
 
 use FideloSoftware\Mailing\Email;
-use FideloSoftware\Mailing\AutoConfig\Discovery;
-use FideloSoftware\Mailing\AutoConfig\Config;
+use FideloSoftware\Mailing\Traits\RunStack;
 
 class MailServer {
+	use RunStack;
 
 	/**
 	 * Discover mail server settings for an email object. If no external config
@@ -26,6 +26,8 @@ class MailServer {
 			Discovery\DomainDirectory::class,
 			// dns resolve (mx records)
 			Discovery\DnsResolve::class,
+			// autodiscover CNAME
+			Discovery\Autodiscover::class,
 			// at least we try to guess the config
 			Discovery\Guess::class,
 		], $sDomain);
@@ -76,26 +78,6 @@ class MailServer {
 	public function getDomainDirectoryAutoConfig(string $sDomain) : ?Config {
 		return $this->run(Discovery\DomainDirectory::class, $sDomain);
 	}
-	
-	/**
-	 * Run stack of auto discovery classes (stops on first match)
-	 * 
-	 * @param array|string $mStack
-	 * @param string $sDomain
-	 * @return \FideloSoftware\Mailing\AutoConfig\Config|null
-	 */
-	public function run($mStack, string $sDomain) : ?Config {
 
-		if(!is_array($mStack)) $mStack = [$mStack];
-		
-		foreach($mStack as $sDiscoverClass) {			
-			if(null !== $oConfig = (new $sDiscoverClass)->discover($sDomain)) {
-				return $oConfig;
-			}			
-		}
-		
-		return null;
-	}
-	
 }
 
